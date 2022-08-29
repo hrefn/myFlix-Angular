@@ -4,14 +4,14 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { MovieViewComponent } from './movie-view/movie-view.component';
+// import { UserLoginComponent } from './user-login/user-login.component';
+// import { MovieViewComponent } from './movie-view/movie-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserLoginComponent,
-    MovieViewComponent
+    // UserLoginComponent,
+    // MovieViewComponent
   ],
   imports: [
     BrowserModule,

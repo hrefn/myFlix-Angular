@@ -13,6 +13,8 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 })
 export class UserProfileComponent implements OnInit {
   user: any = {};
+  favoriteMovies: any = {};
+  movie: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -22,6 +24,8 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // this.getMovies()
+    // this.getFavorites()
     this.getUser()
   }
 
@@ -32,6 +36,30 @@ export class UserProfileComponent implements OnInit {
       return this.user;
     })
   }
+
+  goBack(): void {
+    this.router.navigate(['/movies'])
+  }
+
+  // getMovies(): void {
+  //   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+  //     this.movie = resp;
+  //     console.log(this.movie);
+  //     return this.movie;
+  //   })
+  // }
+
+  // getFavorites(): void {
+  //   this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+  //     this.favoriteMovies = resp;
+  //     console.log(this.favoriteMovies);
+  //     return this.favoriteMovies;
+  //   })
+  // }
+
+  // isFavorite(id: string): boolean {
+  //   return this.favoriteMovies.includes(id)
+  // }
 
   openEditProfile(): void {
     this.dialog.open(EditProfileComponent, {

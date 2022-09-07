@@ -8,6 +8,7 @@
       <p>Username: {{user.Username}}</p>
       <p>Email: {{user.Email}}</p>
       <p>Birthday: {{user.Birthday}}</p>
+      <p>Favorite Movies: {{user.FavoriteMovies}}</p>
     </mat-card-content>
     <mat-card-actions>
       <button
@@ -16,6 +17,13 @@
         color="primary"
       >
         Edit Profile
+      </button>
+      <button
+        mat-raised-button
+        (click)="goBack()"
+        color="primary"
+      >
+        Back
       </button>
     </mat-card-actions>
   </mat-card>

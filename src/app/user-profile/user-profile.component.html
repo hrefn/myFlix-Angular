@@ -1,0 +1,22 @@
+
+<div class="user-profile-page">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Profile Page</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Username: {{user.Username}}</p>
+      <p>Email: {{user.Email}}</p>
+      <p>Birthday: {{user.Birthday}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        (click)="openEditProfile()"
+        color="primary"
+      >
+        Edit Profile
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

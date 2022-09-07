@@ -1,9 +1,30 @@
 .movie-view {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  position: absolute;
   justify-content: center;
   padding: 50px 0;
+  background-color: aliceblue;
+}
+
+.mat-card-title {
+  text-align: center;
+}
+
+.mat-card-subtitle {
+  text-align: center;
+}
+
+button {
+  padding: 0;
+}
+
+.mat-card-actions {
+  display: flex;
+}
+
+.mat-button {
+  margin: 0px;
 }
 
 .mat-card {
@@ -12,9 +33,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: #fff;
   box-shadow: 10px 5px 5px gray;
   max-width: 280px;
   width: 280px;
   margin: 15px;
   padding: 20px 3px;
+}
+
+img {
+  width: 250px;
+  height: 350px;
+  object-fit: contain;
 }

@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["src/app"],
+  "tsconfig": "./tsconfig.json",
+  "out": "doc",
+  "readme": "README.md",
+  "name": "myFlix-Angular",
+  "entryPointStrategy": "expand"
+  
+}

@@ -23,6 +23,9 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Uses changeUsername() function to edit user info
+   */
   editUser(): void {
     console.log(this.userData)
     this.fetchApiData.changeUsername(this.userData).subscribe((res) => {

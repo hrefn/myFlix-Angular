@@ -13,8 +13,8 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 })
 export class UserProfileComponent implements OnInit {
   user: any = {};
-  favoriteMovies: any = {};
-  movie: any = {};
+  // favoriteMovies: any = {};
+  // movie: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -29,6 +29,9 @@ export class UserProfileComponent implements OnInit {
     this.getUser()
   }
 
+  /**
+   * Uses fetch api getUser() function to get user info
+   */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -37,6 +40,9 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
+  /**
+   * Uses Angular Router to go back to /movies
+   */
   goBack(): void {
     this.router.navigate(['/movies'])
   }

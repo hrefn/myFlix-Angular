@@ -120,8 +120,10 @@ export class FetchApiDataService {
   addFavoriteMovie(movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
+    console.log(`adding ${movieID} to favorites`)
     return this.http
-      .post(apiUrl + `users/${username}/movies/${movieID}`, movieID, {
+      .post(apiUrl + `users/${username}/movies/${movieID}`, {movieID}, {
+        responseType: 'text',
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -143,6 +145,7 @@ export class FetchApiDataService {
     const username = localStorage.getItem('user');
     return this.http
       .delete(apiUrl + `users/${username}/movies/${movieID}`, {
+        responseType: 'text',
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -209,7 +212,11 @@ export class FetchApiDataService {
   private extractResponseData(res: any): any {
     const body = res;
     console.log(body)
-    return body || { };
+    if (body == undefined) {
+      return { }
+    } else {
+      return body
+    };
   }
 
 
@@ -222,7 +229,7 @@ export class FetchApiDataService {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error has occurred:', error.error.message)
     } else {
-      console.error(`Error Status code ${error.status}, ` + `Error body is: ${error.error.message}`);
+      console.error(`Error Status code ${error.status}, ` + `Error body is: ${JSON.stringify(error.error)}`);
     }
     return throwError('Something went wrong!')
   }

@@ -23,7 +23,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
-import { SynopsisComponent } from './synopsis/synopsis.component'
+import { SynopsisComponent } from './synopsis/synopsis.component';
+import { NavbarComponent } from './navbar/navbar.component'
 // import { UserLoginComponent } from './user-login/user-login.component';
 // import { MovieViewComponent } from './movie-view/movie-view.component';
 
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     GenreComponent,
     DirectorComponent,
     SynopsisComponent,
+    NavbarComponent,
     // UserLoginComponent,
     // MovieViewComponent
   ],

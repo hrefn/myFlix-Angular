@@ -1,6 +1,7 @@
 .movie-view {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   position: absolute;
   justify-content: center;
   padding: 50px 0;
@@ -9,10 +10,15 @@
 
 .mat-card-title {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .mat-card-subtitle {
   text-align: center;
+}
+
+.mat-card-actions>button {
+  flex: 1;
 }
 
 button {

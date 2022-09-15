@@ -13,8 +13,8 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 })
 export class UserProfileComponent implements OnInit {
   user: any = {};
-  // favoriteMovies: any = {};
-  // movie: any = {};
+  favoriteMovies: any = [];
+  movies: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -24,9 +24,9 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.getMovies()
-    // this.getFavorites()
-    this.getUser()
+    this.getUser();
+    this.getMovies();
+    this.favoriteIDToArray();
   }
 
   /**
@@ -35,7 +35,8 @@ export class UserProfileComponent implements OnInit {
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      console.log(this.user);
+      this.favoriteIDToArray();
+      console.log(this.favoriteMovies)
       return this.user;
     })
   }
@@ -47,25 +48,29 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/movies'])
   }
 
-  // getMovies(): void {
-  //   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-  //     this.movie = resp;
-  //     console.log(this.movie);
-  //     return this.movie;
-  //   })
-  // }
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.movies = resp;
+      console.log(this.movies);
+      return this.movies;
+    })
+  }
 
-  // getFavorites(): void {
-  //   this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-  //     this.favoriteMovies = resp;
-  //     console.log(this.favoriteMovies);
-  //     return this.favoriteMovies;
-  //   })
-  // }
-
-  // isFavorite(id: string): boolean {
-  //   return this.favoriteMovies.includes(id)
-  // }
+  favoriteIDToArray(): void {
+    let movieArr = []
+    for (let i = 0; i < this.movies.length; i++) {
+      for (let j = 0; j < this.user.FavoriteMovies.length; j++) {
+        if (this.user.FavoriteMovies[j] == this.movies[i]._id) {
+          movieArr.push(this.movies[i])
+        }
+      }
+    }
+    console.log(movieArr)
+    for (let i = 0; i < movieArr.length; i++) {
+      this.favoriteMovies.push(movieArr[i].Title)
+    }
+    return this.favoriteMovies
+  }
 
   openEditProfile(): void {
     this.dialog.open(EditProfileComponent, {

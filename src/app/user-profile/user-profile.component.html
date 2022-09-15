@@ -5,10 +5,13 @@
       <mat-card-title>Profile Page</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Username: {{user.Username}}</p>
-      <p>Email: {{user.Email}}</p>
-      <p>Birthday: {{user.Birthday}}</p>
-      <p>Favorite Movies: {{user.FavoriteMovies}}</p>
+      <p><b>Username:</b> {{user.Username}}</p>
+      <p><b>Email:</b> {{user.Email}}</p>
+      <p><b>Birthday:</b> {{user.Birthday | date:"mediumDate"}}</p>
+      <p *ngIf="favoriteMovies?.length > 0"><b>Favorite Movies:</b></p>
+      <ul>
+        <li *ngFor="let movie of favoriteMovies">{{movie}}</li>
+      </ul>
     </mat-card-content>
     <mat-card-actions>
       <button
